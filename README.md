@@ -1,50 +1,55 @@
-
 # 🛠️ Code Challenge Runner
 
-Ein praktisches PHP-Skript zur Organisation und Ausführung von **Code-Challenges**. 🚀  
-Es bietet ein einfaches **Kommandozeilen-Menü**, in dem du alle vorhandenen Challenges anzeigen und direkt ausführen kannst.
+Ein flexibles PHP-Skript, mit dem Sie verschiedene Code-Challenges ausführen können, die in einem Ordner organisiert sind. Navigieren Sie durch ein Menü, wählen Sie eine Challenge aus, und führen Sie die Lösung direkt aus.
 
 ---
 
-## 📋 Features
+## 🚀 Features
 
-- 📂 **Dynamische Ordnerstruktur**: Neue Challenges werden automatisch erkannt.  
-- 📑 **Paginierte Anzeige**: Auch bei vielen Challenges bleibt die Übersicht erhalten.  
-- 🎯 **Direktausführung per ID**: Führe eine Challenge direkt aus, ohne das Menü aufzurufen.  
-- 🕒 **Sortierung**: Die zuletzt erstellte Challenge steht immer ganz oben.  
+- Automatisches Erkennen von Challenges im Ordner `challenges`.
+- Unterstützung für beliebig viele Challenges, inklusive Seitennavigation.
+- Farbcodiertes, benutzerfreundliches CLI-Interface.
+- Direktes Ausführen einer Challenge durch Angabe einer Challenge-ID.
+- Flexible Erweiterbarkeit durch Hinzufügen neuer Challenges.
 
 ---
 
 ## 🚀 Installation
 
-1. **Projekt klonen oder herunterladen**:
-   ```bash
-   git clone <dein-repo-link>
-   cd SkillsTraining/main
-   ```
+**Projekt klonen oder herunterladen**  
+```bash
+git clone <dein-repo-link>
+cd SkillsTraining/main
+```
 
-2. **Ordnerstruktur anlegen**:  
-   Erstelle einen Ordner namens `codechallenges/` und füge deine Challenges hinzu.  
-   Jede Challenge muss eine Datei namens `solution.php` enthalten.
+**Ordnerstruktur anlegen**  
+Erstelle einen Ordner namens `codechallenges/` und füge deine Challenges hinzu.  
+Jede Challenge muss eine Datei namens `solution.php` enthalten.
 
-   ```bash
-   codechallenges/
-   ├── challenge1/
-   │   └── solution.php
-   ├── challenge2/
-   │   └── solution.php
-   ```
+```plaintext
+main/
+├── cmd/
+│   ├── ChallengeRunner.php
+│   ├── CodeChallengeManager.php
+├── challenges/
+│   ├── Challenge1/
+│   │   └── solution.php
+│   ├── Challenge2/
+│   │   └── solution.php
+├── run.php
+└── README.md
+```
 
-3. **Skript ausführen**:
-   ```bash
-   php run.php
-   ```
+**Skript ausführen**  
+```bash
+php run.php
+```
 
 ---
 
 ## ✨ Beispiel einer Konsolen-Ausgabe
 
-### **Menü:**
+### Menü
 ```plaintext
 ====================================
  Code-Challenges Menü (Seite 1 von 2)
@@ -62,7 +67,7 @@ Hinweis: Direkt ausführen mit: php run.php <ID>
 Wähle eine Option:
 ```
 
-### **Ausgabe einer Challenge:**
+### Ausgabe einer Challenge
 ```plaintext
 Starte: Challenge1
 ------------------------------------
@@ -76,15 +81,14 @@ Drücken Sie [Enter], um zurück zum Menü zu gelangen.
 
 ## 🖥️ Verwendung
 
-### **1. Menü aufrufen**
+**Menü aufrufen**  
 Einfach das Skript ausführen:
 ```bash
 php run.php
 ```
-
 Das Menü zeigt alle verfügbaren Challenges an, sortiert nach ihrem Erstellungsdatum. Navigiere durch die Seiten oder wähle eine Challenge mit der entsprechenden Nummer.
 
-### **2. Direkt ausführen**
+**Direkt ausführen**  
 Wenn du die ID einer Challenge kennst, kannst du sie direkt ausführen:
 ```bash
 php run.php 1
@@ -94,35 +98,42 @@ php run.php 1
 
 ## 📂 Hinzufügen neuer Challenges
 
-1. Erstelle einen neuen Ordner in `codechallenges/`. Der Ordnername sollte dem Namen der Challenge entsprechen:
-   ```bash
-   mkdir codechallenges/my_new_challenge
-   ```
+Erstelle einen neuen Ordner in `codechallenges/`. Der Ordnername sollte dem Namen der Challenge entsprechen:
+```bash
+mkdir codechallenges/my_new_challenge
+```
 
-2. Füge eine Datei namens `solution.php` in diesen Ordner ein:
-   ```php
-   <?php
-   echo "Hier kommt die Lösung deiner Challenge!";
-   ?>
-   ```
+Füge eine Datei namens `solution.php` in diesen Ordner ein:
+```php
+<?php
+echo "Hier kommt die Lösung deiner Challenge!";
+?>
+```
 
-3. Die neue Challenge wird automatisch erkannt, wenn du das Skript ausführst. 🎉
+Die neue Challenge wird automatisch erkannt, wenn du das Skript ausführst. 🎉
+
+---
+
+## ⚙️ Verwendung mit GitHub Codespaces
+
+GitHub Codespaces ermöglicht Ihnen, das Projekt in einer cloudbasierten Entwicklungsumgebung ohne lokale Installation auszuführen.
+
+**Schritte zur Einrichtung**  
+- Öffne das Repository in GitHub.
+- Klicke auf **`Code`** und wähle **`Codespaces`**.
+- Erstelle einen neuen Codespace über **`Create codespace on main`**.
+- Warte, bis die Umgebung geladen ist, und öffne ein Terminal.
+- Führe das Skript aus:
+  ```bash
+  php run.php
+  ```
 
 ---
 
 ## 🛠️ Funktionsweise des Skripts
 
-1. **Dynamisches Scannen**:  
-   Das Skript durchsucht den `codechallenges/`-Ordner nach Unterordnern, die eine Datei namens `solution.php` enthalten.
-
-2. **Sortierung nach Erstellungsdatum**:  
-   Die Challenges werden basierend auf dem Erstellungsdatum ihres Ordners sortiert (neueste zuerst).
-
-3. **Anzeige im Menü**:  
-   Eine paginierte Liste der Challenges wird in der Konsole angezeigt. Der Benutzer kann navigieren oder eine Challenge ausführen.
-
-4. **Direkte Ausführung**:  
-   Falls eine ID über die Kommandozeile übergeben wird, startet das Skript die entsprechende Challenge direkt.
+Das Skript durchsucht den `codechallenges/`-Ordner nach Unterordnern, die eine Datei namens `solution.php` enthalten. Diese werden anhand des Erstellungsdatums sortiert und im Menü angezeigt.  
+Durch Eingabe der entsprechenden Nummer kann die Challenge gestartet werden. Mit zusätzlichen Optionen (`n`, `p`) können Seiten navigiert werden.
 
 ---
 

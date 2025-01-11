@@ -1,5 +1,6 @@
 <?php 
 
+// https://leetcode.com/problems/asteroid-collision
 class Solution {
 
     /**
@@ -7,7 +8,7 @@ class Solution {
      * @return Integer[]
      */
     function asteroidCollision($asteroids) {
-        echo "hallo Helt";
+        
     }
 }
 
