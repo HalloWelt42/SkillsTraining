@@ -1,6 +1,3 @@
-Hier ist ein Vorschlag für eine übersichtliche und ansprechende `README.md` für dein Projekt:
-
----
 
 # 🛠️ Code Challenge Runner
 
