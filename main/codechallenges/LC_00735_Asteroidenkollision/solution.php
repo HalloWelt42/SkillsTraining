@@ -8,7 +8,6 @@ class Solution {
      * @return Integer[]
      */
     function asteroidCollision($asteroids) {
-        // while
         $collision = true;
         while($collision){
             $asteroids = array_values($asteroids);
