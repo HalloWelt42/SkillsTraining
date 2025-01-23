@@ -146,7 +146,7 @@ Durch Eingabe der entsprechenden Nummer kann die Challenge gestartet werden. Mit
 
 ## 📜 Lizenz
 
-Dieses Projekt ist lizenziert unter der **MIT-Lizenz**. Siehe die [LICENSE](./LICENSE) Datei für weitere Details.
+Dieses Projekt ist lizenziert unter, siehe [LICENSE](./LICENSE) für weitere Details.
 
 ---
 
