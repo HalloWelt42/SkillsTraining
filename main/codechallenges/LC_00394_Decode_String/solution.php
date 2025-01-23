@@ -8,7 +8,13 @@ class Solution {
      * @return String
      */
     function decodeString($s) {
-            
+        while (preg_match('/(\d+)\[([a-zA-Z]*)\]/', $s, $matches)) {
+            $repeatCount = (int)$matches[1];
+            $subString = $matches[2];
+            $decoded = str_repeat($subString, $repeatCount);
+            $s = str_replace($matches[0], $decoded, $s);
+        }
+        return $s;
     }
 }
 
@@ -20,5 +26,6 @@ foreach([
     '3[a2[c]]',
     '2[abc]3[cd]ef'
 ] as $data){
-    print_r($test->decodeString($data));
+    print_r($test->decodeString($data).PHP_EOL);
+
 }
