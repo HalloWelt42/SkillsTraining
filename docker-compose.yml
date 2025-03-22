@@ -6,9 +6,20 @@ services:
     container_name: php-xdebug
     volumes:
       - .:/var/www/html
-    ports:
-      - "9003:9003"
     environment:
       XDEBUG_MODE: "debug"
       XDEBUG_SESSION: "PHPSTORM"
       XDEBUG_CONFIG: "client_host=host.docker.internal client_port=9003"
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-server
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - .:/var/www/html
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - php
